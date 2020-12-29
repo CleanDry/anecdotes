@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Anecdotes</title>
+    </head>
+
+    <body>
+        <h1>Anecdotes</h1>
+
+        <table>
+            <tr>
+            <th style="text-align:left">Username: <td>{{user.username}} 
+        </table>
+
+
+        <form action='logout/' method="POST">
+            {% csrf_token %}
+            <input type="submit" value="Logout"/>
+        </form>
+
+        <table>
+            {% for anecdote in anecdotes %}
+            <tr>
+                <td>
+                {{ anecdote }}
+                <td>
+                <a href="anecdotes/{{anecdote.id}}">View</a>
+                <td>
+                <form action='delete/' method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{anecdote.id}}" />
+                    <input type="submit" value="Delete"/>
+                </form>
+            {% endfor %}
+        </table>
+
+        <form action='add/' method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			<input type="textarea" name="anecdote" id="anecdote"/>
+            <input type="submit" value="Add"/>
+        </form>
+            
+    </body>
+</html>

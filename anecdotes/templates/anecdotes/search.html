@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Anecdotes of a topic</title>
+    </head>
+
+    <body>
+        <p>Find people with anecdotes about a topic</p>
+        <form action="{% url 'search' %}" method="POST">
+            {% csrf_token %}
+            <input type="textarea" name="query"/>
+            <input type="submit" value="Search"/>
+        </form>
+
+        <br>
+        <p>Results:</p>
+
+        <table>
+            {% for user in found_users %}
+            <tr>
+                <td>
+                {{ user }}
+            {% endfor %}
+        </table>
+
+        <br>
+        <a href="{% url 'home' %}">Back to homepage</a>
+        
+    </body>
+</html>

@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# OWASP vulnerability 7: XSS. Fix: Remove, and sanitize inputs better.
+SESSION_COOKIE_HTTPONLY = False
 
 # Application definition
 
@@ -51,6 +53,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
+# OWASP vulnerability 2: Predictable session tokens
+# Fix: Remove simple session engine
+SESSION_ENGINE = 'config.simplesession'
 
 TEMPLATES = [
     {
@@ -71,6 +76,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 LOGIN_URL = '/login/'
+
+SESSION_COOKIE_SAMESITE = None
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

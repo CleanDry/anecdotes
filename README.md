@@ -6,8 +6,8 @@ Built for HY Cyber Security Base course. Has several intentional security flaws 
 - SQL-injection
 - Broken authentication
 - Sensitive data exposure
+- Broken access control
 - Security misconfiguration
-- XSS-vulnerability
 
 Built with Python and Django.
 

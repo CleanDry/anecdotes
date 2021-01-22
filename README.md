@@ -27,3 +27,7 @@ Built in test users (Username: Password):
 mikke: mikkepw
 
 jakke: jakkepw
+
+### Docker
+
+Docker image for the file and instructions to run with Docker can be found at [cleandry/vulnerabilites-example](https://hub.docker.com/repository/docker/cleandry/vulnerabilities-example)
